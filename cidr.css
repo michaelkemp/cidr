@@ -1,0 +1,191 @@
+body, html {
+	font-family: 'Roboto', sans-serif;
+	background-color: #eee;
+	height: 100%;
+	margin: 0;	
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper, .footer {
+	min-width: 1200px;
+}
+
+.wrapper {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex-shrink: 0;
+}
+
+
+.inputs, .heading {
+	width: 650px;
+    text-align: center;
+}
+
+.input {
+	border: 1px solid black;
+	width: 110px;
+	height: 40px;
+	font-size:36px;
+	text-align: center;
+}
+.slash {
+	font-size:36px;
+	display: inline-block;
+}
+table {
+  	border-collapse: collapse;
+}
+
+.bit {
+	border: 1px solid black;
+	width:20px;
+	height:25px;
+	font-size: 20px;
+	text-align: center;
+	color: #008;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+.bitnum, .bitval {
+	font-size: 8px;
+	line-height: 12px;
+	text-align: center;
+}
+
+.bitnum {
+	vertical-align: top;
+}
+
+.bitval {
+	vertical-align: bottom;
+}
+
+.blank {
+	border: none;
+	width:5px;
+	height:25px;
+
+}
+
+.inputs, .outbits, .outvals, .heading, .subnets, .private {
+	margin: 30px auto 10px auto;
+}
+
+.outvals td {
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid black;
+	width:250px;
+	height:35px;
+	font-size: 30px;
+	padding: 5px;
+}
+
+.outval {
+	text-align: right;
+	color: #008;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+
+.subnets td {
+	font-family: "Lucida Console", Monaco, monospace;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid black;
+	font-size: 14px;
+	padding: 3px 5px;
+	color: #777;
+}
+
+.header td {
+	font-family: 'Roboto', sans-serif;
+	font-size: 22px;
+	color: #000;
+}
+
+.divide, .join {
+	color: #008 !important;
+	cursor:pointer;
+}
+
+.divide {
+	font-size: 24px !important;
+	line-height: 10px;
+}
+
+.private td {
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid black;
+	font-size: 14px;
+	padding: 2px 5px;
+}
+
+.address {
+	color: #008;
+	cursor:pointer;
+
+}
+
+.toclip {
+	position: relative;
+	padding: 2px 25px !important;
+}
+
+.toclip:hover .boxbox {
+	display: block;
+}
+
+.boxbox {
+	position: absolute;
+	top: 0px;
+	right: 2px;
+	display: none;
+	cursor: pointer;
+}
+
+#clippy {
+	position: absolute;
+	top: -999px;
+	left: -999px;
+	width: 10px;
+	height: 10px;
+}
+
+#url {
+	width:100px;
+	text-align: center;
+	margin: 10px auto 10px auto;
+}
+#url a {
+	text-decoration: none;
+	color: #008;
+}
+
+/* Workaround for Firefox Table Border Bug + Relative Positioning */
+.subnets {
+	border-collapse: separate;
+	border-spacing: 0px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: none;
+	border-right: none;
+}
+
+.subnets td {
+	border-top: none;
+	border-left: none;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.subnet-row:hover td {
+	background-color: #eee;
+}

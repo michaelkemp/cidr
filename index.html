@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IPv4 CIDR</title>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="tree.js"></script>
+	<script src="cidr.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="cidr.css" rel="stylesheet" >
+</head>
+<body>
+	<div class="wrapper">
+
+		<h1 class="heading">IPv4 Subnetting</h1>
+
+		<div class="inputs">
+			<input type="text" id="octet1" class="input octet" value="172">
+			<input type="text" id="octet2" class="input octet" value="16">
+			<input type="text" id="octet3" class="input octet" value="0">
+			<input type="text" id="octet4" class="input octet" value="0">
+			<div class="slash">/</div>
+			<input maxlength="2" type="text" id="snmask" class="input mask" value="12">
+		</div>
+
+		<table class="outbits">
+			<tr>
+				<td class="bitval">128</td><td class="bitval">64</td><td class="bitval">32</td><td class="bitval">16</td><td class="bitval">8</td><td class="bitval">4</td><td class="bitval">2</td><td class="bitval">1</td>
+				<td class="blank"></td>
+				<td class="bitval">128</td><td class="bitval">64</td><td class="bitval">32</td><td class="bitval">16</td><td class="bitval">8</td><td class="bitval">4</td><td class="bitval">2</td><td class="bitval">1</td>
+				<td class="blank"></td>
+				<td class="bitval">128</td><td class="bitval">64</td><td class="bitval">32</td><td class="bitval">16</td><td class="bitval">8</td><td class="bitval">4</td><td class="bitval">2</td><td class="bitval">1</td>
+				<td class="blank"></td>
+				<td class="bitval">128</td><td class="bitval">64</td><td class="bitval">32</td><td class="bitval">16</td><td class="bitval">8</td><td class="bitval">4</td><td class="bitval">2</td><td class="bitval">1</td>
+			</tr>
+			<tr>
+				<td class="bit" id="o1b0"></td><td class="bit" id="o1b1"></td><td class="bit" id="o1b2"></td><td class="bit" id="o1b3"></td><td class="bit" id="o1b4"></td><td class="bit" id="o1b5"></td><td class="bit" id="o1b6"></td><td class="bit" id="o1b7"></td>
+				<td class="blank"></td>
+				<td class="bit" id="o2b0"></td><td class="bit" id="o2b1"></td><td class="bit" id="o2b2"></td><td class="bit" id="o2b3"></td><td class="bit" id="o2b4"></td><td class="bit" id="o2b5"></td><td class="bit" id="o2b6"></td><td class="bit" id="o2b7"></td>
+				<td class="blank"></td>
+				<td class="bit" id="o3b0"></td><td class="bit" id="o3b1"></td><td class="bit" id="o3b2"></td><td class="bit" id="o3b3"></td><td class="bit" id="o3b4"></td><td class="bit" id="o3b5"></td><td class="bit" id="o3b6"></td><td class="bit" id="o3b7"></td>
+				<td class="blank"></td>
+				<td class="bit" id="o4b0"></td><td class="bit" id="o4b1"></td><td class="bit" id="o4b2"></td><td class="bit" id="o4b3"></td><td class="bit" id="o4b4"></td><td class="bit" id="o4b5"></td><td class="bit" id="o4b6"></td><td class="bit" id="o4b7"></td>
+			</tr>
+			<tr>
+				<td class="bitnum">1</td><td class="bitnum">2</td><td class="bitnum">3</td><td class="bitnum">4</td><td class="bitnum">5</td><td class="bitnum">6</td><td class="bitnum">7</td><td class="bitnum">8</td>
+				<td class="blank"></td>
+				<td class="bitnum">9</td><td class="bitnum">10</td><td class="bitnum">11</td><td class="bitnum">12</td><td class="bitnum">13</td><td class="bitnum">14</td><td class="bitnum">15</td><td class="bitnum">16</td>
+				<td class="blank"></td>
+				<td class="bitnum">17</td><td class="bitnum">18</td><td class="bitnum">19</td><td class="bitnum">20</td><td class="bitnum">21</td><td class="bitnum">22</td><td class="bitnum">23</td><td class="bitnum">24</td>
+				<td class="blank"></td>
+				<td class="bitnum">25</td><td class="bitnum">26</td><td class="bitnum">27</td><td class="bitnum">28</td><td class="bitnum">29</td><td class="bitnum">30</td><td class="bitnum">31</td><td class="bitnum">32</td>
+			</tr>
+		</table>
+
+		<table class="outvals">
+			<tr>
+				<td>Network</td>
+				<td>Subnet Mask</td>
+				<td>First IP</td>
+				<td>Last IP</td>
+				<td>IP Count</td>
+			</tr>
+			<tr>
+				<td class="outval" id="val-network"></td>
+				<td class="outval" id="val-netmask"></td>
+				<td class="outval" id="val-first-ip"></td>
+				<td class="outval" id="val-last-ip"></td>
+				<td class="outval" id="val-count"></td>
+			</tr>
+		</table>
+
+		<div id="subnetting"></div>
+		<div id="url"><a id="link" href="">Link</a></div>
+	</div>
+	
+	<div class="footer">
+		<table class="private">
+			<tr><td colspan=3>Private Address Spaces</td></tr>
+			<tr>
+				<td class="address" data-oct1="10"  data-oct2="0"   data-oct3="0" data-oct4="0" data-mask="8">10.0.0.0/8</td>
+				<td class="address" data-oct1="172" data-oct2="16"  data-oct3="0" data-oct4="0" data-mask="12">176.16.0.0/12</td>
+				<td class="address" data-oct1="192" data-oct2="168" data-oct3="0" data-oct4="0" data-mask="16">192.168.0.0/16</td>
+			</tr>
+		</table>
+	</div>
+	<textarea id='clippy'></textarea> 
+</body>
+</html>
